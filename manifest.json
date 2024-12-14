@@ -1,0 +1,24 @@
+{
+    "manifest_version": 3,
+
+    "name" : "HueInsight : ColorBlindness Simulator" ,
+    "description" : "",
+    "version" : "0.10",
+
+    "permissions": 
+    [
+    "storage",
+    "activeTab",
+    "scripting"
+    ],
+
+    "action": 
+    {
+        "default_title" : "HueInsight",
+        "default_popup" : "HueInsightPopup.html"
+    }
+
+
+ 
+
+}

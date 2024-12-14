@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="styles.css"/>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <style>
+    body {
+        font-family: 'Montserrat';font-size: 22px;
+    }
+    </style>
+    <link rel="manifest" href="manifest.json">
+    </head>
+
+
+<body>
+    <div id="Dashboard_Banner">
+        <div class="_headline_banner">
+            <h1> Hue Insight </h1>
+        </div>
+    </div>
+
+    <form>
+
+       
+        <!--https://en.wikipedia.org/wiki/Color_blindness#Summary_of_cone_complements -->
+
+        <!-- Selector : NONE / NORMAL -->
+        <input class="radio_selector" name="ColorBlindness" id="radio_0" type="radio" checked/>
+        <label for="radio_0" class="radio_Label"> None  </label>
+        <br>
+    
+        
+        <!-- Selector : PROTANOMALY (Anomalous trichromacy) {(Partial Red Blindness)} -->
+        <input class="_radio_selector" name="ColorBlindness" id="radio_1" type="radio"/>
+        <label for="radio_1" class="_radio_Label"> Protanomaly <span class="_subscriptfont"> (Partial Red Blindness)</span> </label>
+        <br>
+
+        <!-- Selector : PROTANOPIA (Dichromacy) {(Red Blindness)} -->
+        <input class="_radio_selector" name="ColorBlindness" id="radio_2" type="radio"/>
+        <label for="radio_2" class="_radio_Label" name="colorBlindness"> Protanopia <span class="_subscriptfont"> (Red Blindness)</span> </label>
+        <br>
+
+        <!-- Selector : DEUTERANOMALY (Anomalous trichromacy) {(Partial Green Blindness)}-->
+        <input class="_radio_selector" name="ColorBlindness" id="radio_3" type="radio"/>
+        <label for="radio_3" class="_radio_Label" name="colorBlindness"> Deuteranomaly <span class="_subscriptfont"> (Partial Green Blindness)</span> </label>
+        <br>
+
+        <!-- Selector : DEUTERANOPIA (Dichromacy) {(Green Blindness)} -->
+        <!-- <input class="_radio_selector" id="radio_5" type="radio"/>
+        <label for="radio_5" class="_radio_Label" name="colorBlindness"> Deuteranopia <span class="_subscriptfont"> (Green Blindness)</span> </label>
+        <br> -->
+     
+        <!-- Selector : ACHROMATOMALY -->
+        <!-- <input class="_radio_selector" id="radio_8" type="radio"/>
+        <label for="radio_8" class="_radio_Label" name="colorBlindness"> Achromatomaly <span class="_subscriptfont"> (Faded Colors)</span> </label>
+        <br> -->
+
+        <!-- Selector : ACHROMATOPSIA (GreyScale) -->
+         <!--<input class="_radio_selector" id="radio_8" type="radio"/>
+        <label for="radio_8" class="_radio_Label" name="colorBlindness"> Achromatopsia <span class="_subscriptfont"> (Greyscale)</span> </label>
+
+    -->
+     
+       
+
+       
+       
+
+        
+        
+    </form>
+        
+
+    <script src="buttonlistener.js"></script>
+</body>
+
+</html>
