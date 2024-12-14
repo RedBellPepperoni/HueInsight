@@ -22,59 +22,76 @@ const visionType = Object.freeze({
 });
 
 
+function reportError(error) 
+{
+    console.error(`Error testing: ${error}`);
+}
 
 
 function injectColorFilter(filterType)
 {
+
+   
        
     if (document.getElementById("styleColorBlind")) 
         {
-            styleID = document.getElementById("styleColorBlind").remove();
+            stylingID = document.getElementById("styleColorBlind").remove();
             filterID = document.getElementById("filterColorBlind").remove();
         }
      
 
     
-    styleID = document.createElement('styleContainer');
-    styleID.id = "styleColorBlind";
-    document.body.appendChild(styleID);
+    stylingID = document.createElement('style');
+    stylingID.id = "styleColorBlind";
+    document.body.appendChild(stylingID);
       
     pc = document.getElementById("styleColorBlind").id;
 
      
 
-    filterID = document.createElement('filterContainerCustom');
+    filterID = document.createElement('div');
     filterID.id = "filterColorBlind";
     filterID.setAttribute('style', 'height: 0; padding: 0; margin: 0; line-height: 0;');
     document.body.appendChild(filterID);
 
       
-    //   switch(filterType)
-    //   {
+      switch(filterType)
+      {
   
-    //     case '1':
+        case '1':
   
-    //     filterID.innerHTML = `<svg id="colorblindfilters" style="display: none"> 
-    //                           <defs> 
-    //                           <filter id="protanomaly"> 
-    //                           <feColorMatrix type="matrix" values="
-    //                            0.817, 0.183, 0,0, 
-    //                            0,0.333, 0.667, 0,
-    //                            0, 0,0,0.125,
-    //                            0.875, 0, 0,0,
-    //                            0,0,1, 0" 
-    //                           in="SourceGraphic" /> </filter> </defs> </svg>`;
+        filterID.innerHTML =  `
+        <svg 
+        id="access-filter"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        version="1.1">
+        <defs>
+              <filter id="protanomaly">
+              <feColorMatrix
+              in="SourceGraphic"
+        type="matrix"
+        values="0.817, 0.183, 0,     0, 0
+                0.333, 0.667, 0,     0, 0
+                0,     0.125, 0.875, 0, 0
+                0,     0,     0,     1, 0"/>
+        </filter>
+        </defs> 
+        </svg>`;
   
-    //     stylingID.innerHTML = 'html{-webkit-filter:url(#protanomaly);-moz-filter:(#protanomaly);-ms-filter:(#protanomaly);-o-filter:(#protanomaly);filter:(#protanomaly);}';
-       
-    //       break;
+        stylingID.innerHTML = 'html{-webkit-filter:url(#protanomaly);-moz-filter:(#protanomaly);-ms-filter:(#protanomaly);-o-filter:(#protanomaly);filter:(#protanomaly);}'
+        ;
+
+        console.warn(`Case 01 applied`);
+
+          break;
   
 
-    //     default:
+        default:
            
-    //         break;
+            break;
   
-    //   }
+      }
   
   
       
@@ -109,21 +126,16 @@ function setColorFilterCheckBox(value)
 
 function processFilter(filterType, chromeTabId)
 {
-    
-
     chrome.scripting.executeScript(
     {
             target: {tabId : chromeTabId},
             function: injectColorFilter,
-            args : [filterType]
+            args : [filterType],
        
-    }).then(() => console.warn("injected a function"));
+    });
+
 }
 
-function reportError(error) 
-{
-    console.error(`Error testing: ${error}`);
-}
 
 function listenForClicks()
 {
@@ -139,6 +151,8 @@ function listenForClicks()
 
             setColorFilterCheckBox(radioButton.id);
             processFilter(filter, currentTabRef.id);
+
+            
 
         });
        
