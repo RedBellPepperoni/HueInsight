@@ -5,7 +5,7 @@ body
     font-family: 'Montserrat' , sans-serif ;
     color:rgb(64, 64, 64);
     width: 380px;
-    min-height: 520px;
+    min-height: 340px;
     background-color: white;
 }
 
@@ -21,7 +21,7 @@ h2
   
 form 
 {
-    padding: 0 5px 5px 5px;
+    padding: 05px 5px 10px 10px;
 }
 
 ._headline_banner
@@ -36,8 +36,8 @@ form
 
 ._selection
 {
-  padding-top: 0.3em;
-  padding-bottom: 0.3em;
+  padding-top: 0.6em;
+  padding-bottom: 0.6em;
   margin-bottom: 0.4em ;
 }
 
